@@ -1,0 +1,98 @@
+
+.dashboard-progress-container-AGLPI {
+    padding: 10px 40px 10px 10px;
+}
+
+.Aglpi_Vol_Item_Right {
+    width: 30%;
+    float: right;
+    border: 5px solid green;
+    text-align: center;
+    padding: 2px;
+}
+
+.Aglpi_Vol_Item_Left {
+    width: 30%;
+    float: right;
+    border: 5px solid red;
+    text-align: center;
+    padding: 2px;
+}
+
+.Aglpi_Vol_Item_Center {
+    width: 40%;
+    float: right;
+    text-align: center;
+    font-weight: bold;
+    font-size: larger;
+    border: 5px solid transparent;
+}
+
+.Aglpi_VolSaf_Item_Buy {
+    height: 40px;
+    width: 45%;
+    float: right;
+    border: 2px solid green;
+    margin: 10px;
+    text-align: center;
+    padding: 10px;
+}
+
+.Aglpi_VolSaf_Item_Sale {
+    height: 40px;
+    width: 45%;
+    float: left;
+    border: 2px solid red;
+    margin: 10px;
+    text-align: center;
+    padding: 10px;
+}
+
+#AGLPI_PopupBourse:not(.AglpiHidden) {
+    position: fixed;
+    bottom: 20px;
+    right: 20%;
+    display: block;
+    width: 100px;
+    height: 50px;
+    z-index: 1000;
+    border: 1px solid #2cdd20;
+    background-color: white;
+    width: 600px;
+    height: 200px;
+}
+
+#AGLPI_PopupBourse.AglpiHidden {
+    display: none;
+}
+
+#AGLPI_PopupBourse .Aglpi_btn {
+    display: none;
+}
+
+#AGLPI_PopupBourse .Aglpi_btn {
+    display: inline;
+    margin: 5px;
+    padding: 10px;
+    background-color: #25ff8b;
+    border-radius: 5px !important;
+    border: none;
+    width: 94%;
+    color: #070707;
+}
+
+#AGLPI_PopupBourse > h6 {
+    text-align: center;
+    color: white;
+    border-bottom: 3px solid #000;
+    color: black;
+    padding-bottom: 10px;
+}
+
+.dashboardprogress-container-AGLPI {
+    width: 100% !important;
+}
+
+.AGLPI_W100 {
+    width: 100% !important;
+}
