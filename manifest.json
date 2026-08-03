@@ -9,7 +9,7 @@
   ],
 
   "host_permissions": [
-    "https://d.easytrader.ir/*"
+    "https://d.easytrader.ir/*", "https://www.nahayatnegar.com/*", "https://atisaz.exirbroker.com/*"
   ],
 
   "background": {
