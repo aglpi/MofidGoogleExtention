@@ -50,7 +50,7 @@
 
 #AGLPI_PopupBourse:not(.AglpiHidden) {
     position: fixed;
-    bottom: 20px;
+    bottom: 150px;
     right: 20%;
     display: block;
     width: 100px;
