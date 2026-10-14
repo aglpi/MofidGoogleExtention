@@ -51,9 +51,8 @@ var AGLPIObject = {
             AGLPIObject.RemoveItem(This);
         },
         EasyTrader: async function () {
-            var item = $("lib-symbol-information-container lib-ind-inst-chart > div.bar-chart.small.w-100");
+            var item = $("lib-symbol-information-container lib-ind-inst-chart > div.bar-chart");
             console.log($(item).children("div:first-child"));
-
 
             var BuyerCount = AGLPIObject.FixNumbersFAToEN($(item).children("div:first-child").children("div:first-child").children().children("span:first-child").text().trim());
             var BuyerVol = AGLPIObject.FixNumbersFAToEN($(item).children("div:first-child").children("div:first-child").children().children("span:last-child").children("span").remove().end().text().trim());
