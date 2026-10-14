@@ -17,7 +17,7 @@ var AGLPIObject = {
 
         AGLPIObject.RemoveItem(null);
         $('body').append(HtmlPopup);
-
+        
         if (AGLPIObject.UrlPage == "d.easytrader.ir") {
             AGLPIObject.VolumeShow.EasyTrader();
         } else {
@@ -52,8 +52,8 @@ var AGLPIObject = {
         },
         EasyTrader: async function () {
             var item = $("lib-symbol-information-container lib-ind-inst-chart > div.bar-chart");
-            console.log($(item).children("div:first-child"));
-
+            // console.log($(item).children("div:first-child"));
+            var IsDataExists = false;
             var BuyerCount = AGLPIObject.FixNumbersFAToEN($(item).children("div:first-child").children("div:first-child").children().children("span:first-child").text().trim());
             var BuyerVol = AGLPIObject.FixNumbersFAToEN($(item).children("div:first-child").children("div:first-child").children().children("span:last-child").children("span").remove().end().text().trim());
             var SallerCount = AGLPIObject.FixNumbersFAToEN($(item).children("div:first-child").children("div:last-child").children().children("span:first-child").text().trim());
@@ -74,25 +74,30 @@ var AGLPIObject = {
             var ComSeller = ComSallerVol * 1.0 / ComSallerCount;
             var ComRateBuyyer = ComBuyer / ComSeller;
 
-
             var strhtml = '<div class="dashboardprogress-container-AGLPI col-xs-12 col-sm-6 col-md-6 col-lg-6 p-t-15">';
 
             if (!isNaN(RateBuyyer)) {
                 strhtml += '<div class="Aglpi_Vol_Item_Right"> خرید حقیقی ' + parseInt(Buyer * AvgClose / 10000000) + ' میلیون تومان  </div>'
                 strhtml += '<div class="Aglpi_Vol_Item_Center" style="background:' + (RateBuyyer > 1.3 ? "lightgreen" : "lightcoral") + '"> نسبت ' + RateBuyyer.toFixed(2) + ' برابر </div>'
                 strhtml += '<div class="Aglpi_Vol_Item_Left"> فروش حقیقی ' + parseInt(Seller * AvgClose / 10000000) + 'میلیون تومان </div>';
+                IsDataExists = true;
             }
             if (!isNaN(ComRateBuyyer)) {
                 strhtml += '<hr class="AGLPI_W100" />';
                 strhtml += '<div class="Aglpi_Vol_Item_Right"> خرید حقوقی ' + parseInt(ComBuyer * AvgClose / 10000000) + ' میلیون تومان  </div>'
                 strhtml += '<div class="Aglpi_Vol_Item_Center" style="background:' + (ComRateBuyyer > 1.3 ? "lightgreen" : "lightcoral") + '"> نسبت ' + ComRateBuyyer.toFixed(2) + ' برابر </div>'
                 strhtml += '<div class="Aglpi_Vol_Item_Left"> فروش حقوقی ' + parseInt(ComSeller * AvgClose / 10000000) + 'میلیون تومان </div>';
+                IsDataExists = true;
             }
 
             strhtml += '</div>';
-
             $(".dashboardprogress-container-AGLPI").remove();
             $("#AGLPI_PopupBourse").append(strhtml);
+            if(IsDataExists){
+                $("#AGLPI_PopupBourse").attr("style", 'display: block;');
+            }else {
+                $("#AGLPI_PopupBourse").attr("style", 'display: none;');
+            }
 
             setTimeout(async () => {
                 await AGLPIObject.VolumeShow.EasyTrader()
